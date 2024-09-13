@@ -1,0 +1,22 @@
+.sectionPost {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  background-color: #f9f7f8;
+  width: 328px;
+  min-height: 100px;
+  border-radius: 8px;
+  padding-block: 10px;
+  flex-direction: column;
+  color: #453940;
+  margin: 20px 0px 20px 20px;
+  border: none !important;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1000px) {
+  .HomepageDiv {
+    width: 100% !important;
+    margin-bottom: 20px;
+  }
+}

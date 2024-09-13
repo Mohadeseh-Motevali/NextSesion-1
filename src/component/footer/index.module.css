@@ -1,0 +1,8 @@
+.footer {
+  width: 100%;
+  background-color: rgb(195, 91, 131);
+  color: white;
+  min-height: 80px;
+  margin-top: 15px;
+  margin-bottom: 0px;
+}
