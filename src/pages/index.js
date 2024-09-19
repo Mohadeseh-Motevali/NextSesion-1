@@ -5,17 +5,17 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Link from "next/link";
 
-export default function Home() {
-  const [data, setData] = useState([]);
-  const [commentData, setCommentData] = useState([]);
-  useEffect(() => {
-    axios
-      .get("https://jsonplaceholder.typicode.com/posts")
-      .then((response) => setData(response.data));
-    axios
-      .get("https://jsonplaceholder.typicode.com/comments")
-      .then((response) => setCommentData(response.data));
-  }, []);
+export default function Home({data ,commentData}) {
+  // const [data, setData] = useState([]);
+  // const [commentData, setCommentData] = useState([]);
+  // useEffect(() => {
+  //   axios
+  //     .get("https://jsonplaceholder.typicode.com/posts")
+  //     .then((response) => setData(response.data));
+  //   axios
+  //     .get("https://jsonplaceholder.typicode.com/comments")
+  //     .then((response) => setCommentData(response.data));
+  // }, []);
   return (
     <>
       <Head>
@@ -238,3 +238,8 @@ export default function Home() {
     </>
   );
 }
+ export async function getServerSideProps () {
+  const data = await axios.get("https://jsonplaceholder.typicode.com/posts")
+  const comment = await axios.get("https://jsonplaceholder.typicode.com/comments")
+  return { props: { data:data.data  ,commentData:comment.data} }
+ }

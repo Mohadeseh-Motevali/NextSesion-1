@@ -5,13 +5,13 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Link from "next/link";
 
-export default function Home() {
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    axios
-      .get("https://jsonplaceholder.typicode.com/posts")
-      .then((response) => setData(response.data));
-  }, []);
+export default function Home({data}) {
+  // const [data, setData] = useState([]);
+  // useEffect(() => {
+  //   axios
+  //     .get("https://jsonplaceholder.typicode.com/posts")
+  //     .then((response) => setData(response.data));
+  // }, []);
   return (
     <>
       <Head>
@@ -96,4 +96,9 @@ export default function Home() {
       </main>
     </>
   );
+}
+export const getServerSideProps = async() =>{
+
+  const data =await axios.get("https://jsonplaceholder.typicode.com/posts") 
+  return{ props : {data :data.data}}
 }
